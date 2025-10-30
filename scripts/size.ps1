@@ -30,11 +30,19 @@ function Get-Size {
             $fileCount = if ($file) { 1 } else { 0 }
             $dirCount = 0
         } else {
-            $files = Get-ChildItem -Path $Folder -Recurse -Force -File -ErrorAction SilentlyContinue
+            try {
+                $files = @(Get-ChildItem -Path $Folder -Recurse -Force -File -ErrorAction SilentlyContinue)
+            } catch {
+                $files = @()
+            }
             $sumBytes = ($files | Measure-Object -Property Length -Sum).Sum
             if (-not $sumBytes) { $sumBytes = 0 }
             $fileCount = if ($files) { $files.Count } else { 0 }
-            $dirCount = (Get-ChildItem -Path $Folder -Recurse -Force -Directory -ErrorAction SilentlyContinue).Count
+            try {
+                $dirCount = @(Get-ChildItem -Path $Folder -Recurse -Force -Directory -ErrorAction SilentlyContinue).Count
+            } catch {
+                $dirCount = 0
+            }
         }
     } catch {
         Write-Error "Error al calcular el tamaño de: $Folder"
