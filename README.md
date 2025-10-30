@@ -123,16 +123,12 @@ Carga configuraciones iniciales:
 * Configuración de `PSReadLine` para predicción desde historial.
 * Alias `pg` → `pgcli` si está disponible.
 
----
-
 ### ⚙️ `utils.ps1`
 
 Funciones auxiliares que otros módulos usan:
 
 * `Convert-Size`: convierte bytes en KB, MB, GB, TB con formato.
 * `Write-HostCentered`: centra texto en la consola (usado en el banner).
-
----
 
 ### 📦 `size.ps1`
 
@@ -146,8 +142,6 @@ Comandos:
 Admite rutas **relativas o absolutas**.
 Si no se pasa argumento, usa la carpeta actual (`.`).
 
----
-
 ### 📂 `navigation.ps1`
 
 Funciones de navegación rápida:
@@ -158,8 +152,6 @@ Funciones de navegación rápida:
 | `c`                                   | Abre VS Code (por defecto en el directorio actual)     |
 | `core`, `dev`, `uni`, `work`, `learn` | Atajos a carpetas definidas en `$script:QuickPaths`    |
 
----
-
 ### 🧰 `services.ps1`
 
 Comandos del sistema:
@@ -167,8 +159,6 @@ Comandos del sistema:
 * `essh`: habilita y arranca el servicio `ssh-agent`.
 * `ti`: carga el módulo `Terminal-Icons` con feedback visual.
 * `sexo`: abre CornHub (un easter egg 🌽).
-
----
 
 ### 🧑‍💻 `node.ps1`
 
@@ -184,7 +174,7 @@ Herramientas para desarrollo con Node.js:
 | `ninit`  | Inicializa un nuevo proyecto con `pnpm init`                          |
 | `sdev`   | Abre VS Code, arranca el servidor y abre el navegador automáticamente |
 
----
+
 
 ### 📜 `help.ps1`
 
@@ -196,13 +186,13 @@ commands
 
 Muestra todos los comandos personalizados clasificados por categoría.
 
----
+
 
 ### 🪩 `banner.ps1`
 
 Muestra tu banner ASCII centrado con tu nombre o logo al abrir PowerShell.
 
----
+
 
 ## 🔧 Cómo añadir más scripts
 
@@ -240,16 +230,12 @@ Muestra tu banner ASCII centrado con tu nombre o logo al abrir PowerShell.
 4. Guarda los cambios y reinicia PowerShell.
    Tu script se cargará automáticamente al inicio.
 
----
-
 ## 🧩 Recomendaciones
 
 * Guardá este repo en GitHub o GitLab para tener tu entorno siempre disponible.
 * Podés mantener ramas separadas para configuraciones distintas (trabajo, personal, laptop, etc.).
 * Si agregás scripts complejos, considerá agruparlos como módulos (`.psm1`).
 * Podés personalizar `Show-Name` en `banner.ps1` para mostrar otro texto o arte ASCII.
-
----
 
 ## 🧭 Créditos y licencia
 
