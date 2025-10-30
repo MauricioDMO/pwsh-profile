@@ -1,7 +1,15 @@
-# Tabla de contenidos
+# 🧩 PowerShell Profile Modular — `pwsh-profile`
 
-- [Tabla de contenidos](#tabla-de-contenidos)
+Este repositorio contiene una configuración modular para **PowerShell 7+**, diseñada para mantener tu entorno limpio, reutilizable y fácil de versionar.
+
+La idea es **separar toda la lógica del perfil** (`Microsoft.PowerShell_profile.ps1`) en archivos organizados dentro de este proyecto, que el perfil solo carga automáticamente al iniciar PowerShell.
+
+---
+
+## Tabla de contenidos
+
 - [🧩 PowerShell Profile Modular — `pwsh-profile`](#-powershell-profile-modular--pwsh-profile)
+  - [Tabla de contenidos](#tabla-de-contenidos)
   - [🚀 Objetivo](#-objetivo)
   - [📁 Estructura de carpetas](#-estructura-de-carpetas)
   - [⚙️ Instalación](#️-instalación)
@@ -20,13 +28,6 @@
   - [🔧 Cómo añadir más scripts](#-cómo-añadir-más-scripts)
   - [🧩 Recomendaciones](#-recomendaciones)
   - [🧭 Créditos y licencia](#-créditos-y-licencia)
-
-
-# 🧩 PowerShell Profile Modular — `pwsh-profile`
-
-Este repositorio contiene una configuración modular para **PowerShell 7+**, diseñada para mantener tu entorno limpio, reutilizable y fácil de versionar.
-
-La idea es **separar toda la lógica del perfil** (`Microsoft.PowerShell_profile.ps1`) en archivos organizados dentro de este proyecto, que el perfil solo carga automáticamente al iniciar PowerShell.
 
 ---
 
