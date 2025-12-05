@@ -17,8 +17,11 @@ function uni   { Set-Location $script:QuickPaths.uni }
 function work  { Set-Location $script:QuickPaths.work }
 function learn { Set-Location $script:QuickPaths.learn }
 
-# Abre explorador en el dir actual
-function e { Start-Process explorer . }
+# Abre File Pilot en la ruta especificada
+function e { 
+    param([string]$Path = '.')
+    FPilot.exe $Path
+ }
 
 # Abre VS Code aquí o ruta especificada
 function c {
