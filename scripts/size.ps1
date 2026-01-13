@@ -85,26 +85,18 @@ function size {
     $info = Get-Size -Path $path
     if (-not $info) { return }
 
-    try { $width = [Console]::WindowWidth } catch { $width = 60 }
-    if (-not $width -or $width -lt 20) { $width = 60 }
-    $line = ('─' * $width)
-
     Write-Host ""
-    Write-Host $line -ForegroundColor DarkGray
-    Write-Host ""
-    Write-Host " Ruta   : " -NoNewline -ForegroundColor DarkCyan
-    Write-Host "$($info.Path)" -ForegroundColor Gray
-    Write-Host " Tamaño : " -NoNewline -ForegroundColor DarkCyan
-    Write-Host "$($info.Size) ($($info.SizeBytes) bytes)" -ForegroundColor Green
-    Write-Host " Archs  : " -NoNewline -ForegroundColor DarkCyan
-    Write-Host "$($info.Files)" -ForegroundColor White -NoNewline
-    Write-Host "    Carpetas:" -NoNewline -ForegroundColor DarkCyan
-    Write-Host " $($info.Folders)" -ForegroundColor Yellow
+    Write-Divider
+    
+    Write-Item -Label "Ruta"     -Value $info.Path     -LabelColor Gray -ValueColor White
+    Write-Item -Label "Tamaño"   -Value "$($info.Size) ($($info.SizeBytes) bytes)" -LabelColor Gray -ValueColor Green
+    Write-Item -Label "Archivos" -Value "$($info.Files) / $($info.Folders) carpetas" -LabelColor Gray -ValueColor White
+    
     Write-Host ""
 
     if (-not $info.IsFile) {
         if ($info.Top -and $info.Top.Count -gt 0) {
-            Write-Host "Top 5 archivos por tamaño:" -ForegroundColor Cyan
+            Write-Category "TOP 5 ARCHIVOS" -Color Cyan
             foreach ($f in $info.Top) {
                 $sizeStr = Convert-Size $f.Length
                 try {
@@ -117,14 +109,14 @@ function size {
                 } catch {
                     $relative = $f.FullName
                 }
-                Write-Host (" {0,9}  {1}" -f $sizeStr, $relative) -ForegroundColor Gray
+                Write-Item -Label $sizeStr -Value $relative -Padding 10 -LabelColor Cyan -ValueColor Gray
             }
             Write-Host ""
         } else {
-            Write-Host "No se encontraron archivos." -ForegroundColor Yellow
+            Write-Host "  [!] No se encontraron archivos." -ForegroundColor Yellow
         }
     }
 
-    Write-Host $line -ForegroundColor DarkGray
+    Write-Divider
     Write-Host ""
 }

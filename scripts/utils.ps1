@@ -26,3 +26,41 @@ function Write-HostCentered {
         Write-Host "$padding$Text" -ForegroundColor $ForegroundColor
     }
 }
+
+# Escribe un encabezado estilizado
+function Write-Header {
+    param ([string]$Title, [ConsoleColor]$Color = 'DarkCyan')
+    Write-Host "`n  ╔$($null; '═' * ($Title.Length + 4))╗" -ForegroundColor $Color
+    Write-Host "  ║  $Title  ║" -ForegroundColor $Color
+    Write-Host "  ╚$($null; '═' * ($Title.Length + 4))╝" -ForegroundColor $Color
+}
+
+# Escribe una línea de item (Comando » Descripción)
+function Write-Item {
+    param (
+        [string]$Label,
+        [string]$Value,
+        [int]$Padding = 12,
+        [ConsoleColor]$LabelColor = 'Cyan',
+        [ConsoleColor]$ValueColor = 'White'
+    )
+    Write-Host "    $($Label.PadRight($Padding))" -ForegroundColor $LabelColor -NoNewline
+    Write-Host " » " -ForegroundColor Gray -NoNewline
+    Write-Host $Value -ForegroundColor $ValueColor
+}
+
+# Escribe una sección de categoría
+function Write-Category {
+    param ([string]$Name, [ConsoleColor]$Color = 'Yellow')
+    Write-Host "`n  $Name" -ForegroundColor $Color
+    Write-Host "  $($null; '-' * $Name.Length)" -ForegroundColor $Color
+}
+
+# Escribe una línea divisoria
+function Write-Divider {
+    param ([ConsoleColor]$Color = 'DarkGray')
+    try { $width = [Console]::WindowWidth } catch { $width = 60 }
+    if ($width -lt 20) { $width = 60 }
+    Write-Host "  $($null; '─' * ($width - 4))" -ForegroundColor $Color
+}
+
