@@ -11,25 +11,41 @@ $script:QuickPaths = @{
     learn = "$env:USERPROFILE\core\learn"
 }
 
+# Función auxiliar para navegación con error amigable
+function _Go {
+    param([string]$BasePath, [string]$RelativePath)
+    $target = Join-Path $BasePath ($RelativePath.TrimStart('\').TrimStart('/'))
+    if (Test-Path $target) {
+        Set-Location $target
+    }
+    else {
+        Write-Host ""
+        Write-Host "  📂 " -NoNewline
+        Write-Host "Ruta no encontrada: " -ForegroundColor Red -NoNewline
+        Write-Host $target -ForegroundColor Yellow
+        Write-Host ""
+    }
+}
+
 function core {
     param([string]$Path = "")
-    Set-Location (Join-Path $script:QuickPaths.core $Path.TrimStart('\').TrimStart('/'))
+    _Go $script:QuickPaths.core $Path
 }
 function dev {
     param([string]$Path = "")
-    Set-Location (Join-Path $script:QuickPaths.dev $Path.TrimStart('\').TrimStart('/'))
+    _Go $script:QuickPaths.dev $Path
 }
 function uni {
     param([string]$Path = "")
-    Set-Location (Join-Path $script:QuickPaths.uni $Path.TrimStart('\').TrimStart('/'))
+    _Go $script:QuickPaths.uni $Path
 }
 function work {
     param([string]$Path = "")
-    Set-Location (Join-Path $script:QuickPaths.work $Path.TrimStart('\').TrimStart('/'))
+    _Go $script:QuickPaths.work $Path
 }
 function learn {
     param([string]$Path = "")
-    Set-Location (Join-Path $script:QuickPaths.learn $Path.TrimStart('\').TrimStart('/'))
+    _Go $script:QuickPaths.learn $Path
 }
 
 # Autocompletado para rutas rápidas
