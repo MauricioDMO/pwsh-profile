@@ -90,3 +90,9 @@ function c {
     param([string]$Path = '.')
     code $Path
 }
+
+function dps {
+    param([string]$Path = '.')
+    $fullPath = (Resolve-Path $Path).Path
+    wt -w 0 nt -d "$fullPath"
+}

@@ -4,30 +4,25 @@
 
 function commands {
     $commandsTable = @{
-        "Navigation" = @(
-            "e       - Open current directory in Explorer"
-            "c       - Open current directory in VS Code"
-            "core    - Go to core directory"
-            "dev     - Go to dev directory"
-            "uni     - Go to university directory"
-            "work    - Go to work directory"
-            "learn   - Go to learn directory"
-        )
-        "Development" = @(
-            "sdev    - Open VS Code + start dev server + open browser"
-            "ndev    - Start dev server"
-            "nbuild  - Build project"
-            "nstart  - Start production server"
+        "Navigation"         = @(
+            "e        - Open current directory in Explorer"
+            "c        - Open current directory in VS Code"
+            "dps      - Open new tab in current Terminal window"
+            "core     - Go to core directory"
+            "dev      - Go to dev directory"
+            "uni      - Go to university directory"
+            "work     - Go to work directory"
+            "learn    - Go to learn directory"
         )
         "Package Management" = @(
-            "nclean  - Clean node_modules and lock files"
-            "ninit   - Initialize new Node.js project"
-            "ncheck  - Check Node versions and project info"
+            "nclean   - Clean node_modules and lock files"
+            "ncheck   - Check Node versions and project info"
+            "nscripts - List available npm scripts"
         )
-        "System" = @(
-            "ti      - Load Terminal-Icons module"
-            "essh    - Enable SSH Agent"
-            "size    - Shows the size of the dir"
+        "System"             = @(
+            "ti       - Load Terminal-Icons module"
+            "essh     - Enable SSH Agent"
+            "size     - Shows the size of the dir"
         )
     }
 
