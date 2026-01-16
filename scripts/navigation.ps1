@@ -96,3 +96,7 @@ function dps {
     $fullPath = (Resolve-Path $Path).Path
     wt -w 0 nt -d "$fullPath"
 }
+
+function x {
+    exit
+}

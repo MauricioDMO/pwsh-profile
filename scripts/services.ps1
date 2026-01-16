@@ -25,12 +25,20 @@ function ti {
             Import-Module Terminal-Icons
             $stopwatch.Stop()
             Write-Host "✅ Terminal-Icons loaded in $($stopwatch.ElapsedMilliseconds)ms" -ForegroundColor Green
-        } catch {
+        }
+        catch {
             $stopwatch.Stop()
             Write-Host "❌ Failed to load Terminal-Icons after $($stopwatch.ElapsedMilliseconds)ms" -ForegroundColor Red
             Write-Host "Error: $($_.Exception.Message)" -ForegroundColor Red
         }
-    } else {
+    }
+    else {
         Write-Host "✅ Terminal-Icons is already loaded" -ForegroundColor Green
     }
+}
+
+New-Alias o opencode
+
+function oc {
+    opencode -c
 }
